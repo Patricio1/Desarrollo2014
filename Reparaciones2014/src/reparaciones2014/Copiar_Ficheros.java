@@ -11,12 +11,13 @@ import java.util.logging.Logger;
 
 public class Copiar_Ficheros {
     /**METODO PARA COPIAR FICHEROS DE  CUALQUIER PARTE HACIA UNA RUTA ESPECIFICA*/
-    public void copiar(String path) throws IOException{
+    public String copiar(String path) throws IOException{
         FileOutputStream fsalida = null;
         try {
             FileInputStream fregis = new FileInputStream(path);
              File miFichero= new File(path);
-            fsalida = new FileOutputStream("C:/imagenes/"+miFichero.getName(), true);
+             String ruta="C:/imagenes/"+miFichero.getName();
+            fsalida = new FileOutputStream(ruta, true);
            
             
             int b = fregis.read();
@@ -28,6 +29,7 @@ public class Copiar_Ficheros {
             fsalida.flush();
             fsalida.close();
             fregis.close();
+            return ruta;
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Copiar_Ficheros.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
@@ -37,6 +39,8 @@ public class Copiar_Ficheros {
                 Logger.getLogger(Copiar_Ficheros.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    return "";
     }
+    
     
 }
