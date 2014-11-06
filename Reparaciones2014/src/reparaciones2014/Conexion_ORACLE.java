@@ -12,7 +12,7 @@ public class Conexion_ORACLE {
             Class.forName("oracle.jdbc.OracleDriver");
            
             conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","REPARACIONES","REPARACIONES");
-            JOptionPane.showMessageDialog(null, "exito :)");
+            JOptionPane.showMessageDialog(null, "HOLA MUNDO");
         } catch (ClassNotFoundException ex) {
             JOptionPane.showMessageDialog(null, "fallo :(");
         } catch (SQLException ex) {
